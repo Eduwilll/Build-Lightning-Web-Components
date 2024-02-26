@@ -1,0 +1,34 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+      <div slot="title">
+          Card Title
+      </div>
+      <div slot="actions">
+    
+      </div>
+      <div slot="footer">
+    
+      </div>
+      <div>
+        <!-- Card Body  -->
+        <lightning-input 
+        type="number" 
+        label="Annual Revenue" 
+        formatter="currency"
+        onchange={handleChange}
+        value={annualRevenue}
+      ></lightning-input>
+      <lightning-button 
+        variant="brand"
+        label="reset" 
+        onclick={reset} 
+      ></lightning-button>
+      <template lwc:if={accounts.data}>
+        <template for:each={accounts.data} for:item="account">
+             <p key={account.Id}>{account.Name}</p>
+        </template>
+    </template> 
+      </div>
+    </lightning-card>
+   
+</template>
